@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using PS.MangoRestaurant.Services.ProductAPI;
 using PS.MangoRestaurant.Services.ProductAPI.DbContexts;
+using PS.MangoRestaurant.Services.ProductAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(builder.
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+//Подключение внедрений зависимостей
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 //Подключеие свагера
 builder.Services.AddEndpointsApiExplorer();
