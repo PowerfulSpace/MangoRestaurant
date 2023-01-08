@@ -64,7 +64,7 @@ namespace PS.MangoRestaurant.Web.Services
                 };
                 var res = JsonConvert.SerializeObject(dto);
                 var apiResponseDto = JsonConvert.DeserializeObject<T>(res);
-                return apiResponseDto;
+                return apiResponseDto!;
             }
         }
 
