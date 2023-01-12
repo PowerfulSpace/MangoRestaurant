@@ -2,9 +2,9 @@
 
 namespace PS.MangoRestaurant.Web.Services.IServices
 {
-    public interface IProductServices
+    public interface IProductServices : IBaseService
     {
-        Task<T> GetProductsAsync<T>();
+        Task<T> GetAllProductsAsync<T>();
         Task<T> GetProductByIdAsync<T>(int id);
         Task<T> CreateProductAsync<T>(ProductDto productDto);
         Task<T> UpdateProductAsync<T>(ProductDto productDto);
