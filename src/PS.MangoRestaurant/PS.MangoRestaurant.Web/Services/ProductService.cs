@@ -3,7 +3,7 @@ using PS.MangoRestaurant.Web.Services.IServices;
 
 namespace PS.MangoRestaurant.Web.Services
 {
-    public class ProductService : BaseService, IProductServices
+    public class ProductService : BaseService, IProductService
     {
         private readonly IHttpClientFactory _clientFactory;
         public ProductService(IHttpClientFactory clientFactory) : base(clientFactory)
