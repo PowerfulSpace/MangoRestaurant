@@ -32,7 +32,7 @@ namespace PS.MangoRestaurant.Services.ProductAPI.Controllers
             return _response;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("{id}")]
         public async Task<object> Get(int id)
         {
@@ -82,6 +82,7 @@ namespace PS.MangoRestaurant.Services.ProductAPI.Controllers
         }
 
         [HttpDelete]
+        [Route("{id}")]
         public async Task<object> Delete(int id)
         {
             try
