@@ -11,7 +11,8 @@ SD.ProductAPIBase = builder.Configuration["ServiceUrls:ProductAPI"];
 
 builder.Services.AddScoped<IProductService, ProductService>();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddRazorRuntimeCompilation();
 
 
 var app = builder.Build();
