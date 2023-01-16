@@ -11,8 +11,8 @@ using PS.MangoRestaurant.Services.ProductAPI.DbContexts;
 namespace PS.MangoRestaurant.Services.ProductAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230108193049_SeedProducts")]
-    partial class SeedProducts
+    [Migration("20230115224237_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
