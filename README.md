@@ -114,8 +114,13 @@
     В повершеле меняем путь на путь к нашему проекту, через команду cd ПУТЬ
     ПУТЬ dotnet new --install Duende.IdentityServer.Templates
     ПУТЬ dotnet new isui
-
-
+34. Создадим новый сервис для идентификации PS.MangoRestaurant.Services.Identity
+35. Установим Nuget пакеты
+    Duende.IdentityServer.AspNetIdentity
+    Microsoft.EntityFrameworkCore.SqlServer
+    Microsoft.AspNetCore.Identity.EntityFrameworkCore
+    Microsoft.AspNetCore.Identity.UI
+    Microsoft.EntityFrameworkCore.Tools
 
 
 

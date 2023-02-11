@@ -5,11 +5,13 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{EDCE6171-AB33-457A-8550-9242C7ABCC8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.MangoRestaurant.Web", "PS.MangoRestaurant.Web\PS.MangoRestaurant.Web.csproj", "{3754D1C5-D34C-4CEE-899A-D2969B9EE6AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.MangoRestaurant.Web", "PS.MangoRestaurant.Web\PS.MangoRestaurant.Web.csproj", "{3754D1C5-D34C-4CEE-899A-D2969B9EE6AC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{14A9B7A2-B783-44D9-9161-F90302B48697}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.MangoRestaurant.Services.ProductAPI", "PS.MangoRestaurant.Services.ProductAPI\PS.MangoRestaurant.Services.ProductAPI.csproj", "{3E81DD0F-ACA2-42F7-99C1-C21EC389EF57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.MangoRestaurant.Services.ProductAPI", "PS.MangoRestaurant.Services.ProductAPI\PS.MangoRestaurant.Services.ProductAPI.csproj", "{3E81DD0F-ACA2-42F7-99C1-C21EC389EF57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.MangoRestaurant.Services.Identity", "PS.MangoRestaurant.Services.Identity\PS.MangoRestaurant.Services.Identity.csproj", "{7D721634-AFBB-47ED-9C45-89BB5C39071E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{3E81DD0F-ACA2-42F7-99C1-C21EC389EF57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E81DD0F-ACA2-42F7-99C1-C21EC389EF57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E81DD0F-ACA2-42F7-99C1-C21EC389EF57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D721634-AFBB-47ED-9C45-89BB5C39071E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D721634-AFBB-47ED-9C45-89BB5C39071E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D721634-AFBB-47ED-9C45-89BB5C39071E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D721634-AFBB-47ED-9C45-89BB5C39071E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{3754D1C5-D34C-4CEE-899A-D2969B9EE6AC} = {EDCE6171-AB33-457A-8550-9242C7ABCC8F}
 		{3E81DD0F-ACA2-42F7-99C1-C21EC389EF57} = {14A9B7A2-B783-44D9-9161-F90302B48697}
+		{7D721634-AFBB-47ED-9C45-89BB5C39071E} = {14A9B7A2-B783-44D9-9161-F90302B48697}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8576052-91ED-410D-B84B-1895385B1580}
