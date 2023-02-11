@@ -121,9 +121,12 @@
     Microsoft.AspNetCore.Identity.EntityFrameworkCore
     Microsoft.AspNetCore.Identity.UI
     Microsoft.EntityFrameworkCore.Tools
-
-
-
+36. Создаём дерикторию DbContexts для работы с бд в PS.MangoRestaurant.Services.Identity
+    ApplicationDbContext
+37. Добавим модель в PS.MangoRestaurant.Services.Identity
+    ApplicationUser
+38. Создаём класс для удобства в работе с API который будет статическим и хранить константы в PS.MangoRestaurant.Services.Identity и дабавляем в него константы полей ролей
+    SD
 
 
 
