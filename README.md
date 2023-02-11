@@ -16,7 +16,7 @@
 
 -MVC Web Application.
 
-
+            API для товаров и CRUD операции
 
 1. Создание репозитория
 2. Создание проекта
@@ -105,3 +105,22 @@
     ProductCreate
     ProductEdit
     ProductDelete
+
+
+                        Identity Server
+32. Перейдём на сайт: https://duendesoftware.com/ и находим команду
+    https://docs.duendesoftware.com/identityserver/v6/quickstarts/0_overview/
+33. Идём в консоль, и выполняем команды. Закгрузит всё необходимоею, добавит папку с ресурсами
+    В повершеле меняем путь на путь к нашему проекту, через команду cd ПУТЬ
+    ПУТЬ dotnet new --install Duende.IdentityServer.Templates
+    ПУТЬ dotnet new isui
+
+
+
+
+
+
+
+
+
+
