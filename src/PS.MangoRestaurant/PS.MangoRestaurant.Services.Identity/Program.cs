@@ -53,7 +53,6 @@ app.UseIdentityServer();
 app.UseAuthorization();
 
 //Инициализация бд при отсутствии данных
-
 using(var scope = app.Services.CreateScope())
 {
     var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();

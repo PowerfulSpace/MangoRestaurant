@@ -21,7 +21,7 @@ namespace PS.MangoRestaurant.Services.Identity.Initializer
 
         public void Initialize()
         {
-            if (_roleManager.FindByNameAsync(SD.Admin) == null)
+            if (_roleManager.FindByNameAsync(SD.Admin).Result == null)
             {
                 _roleManager.CreateAsync(new IdentityRole(SD.Admin)).GetAwaiter().GetResult();
                 _roleManager.CreateAsync(new IdentityRole(SD.Customer)).GetAwaiter().GetResult();
