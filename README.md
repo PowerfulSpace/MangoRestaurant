@@ -134,6 +134,10 @@
     -система идентификации
     -запуск identity servera
     -включить в конвеер identityServer
+41. Добавляем директорию Initializer для создания данных при отсутсвии данных и реализовываем
+    IDbInitializer
+    DbInitializer
+42. Настраиваем в Program подключения и запуска Inizialize
 
 
 
