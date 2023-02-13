@@ -1,10 +1,38 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using PS.MangoRestaurant.Services.Identity;
+using PS.MangoRestaurant.Services.Identity.DbContext;
+using PS.MangoRestaurant.Services.Identity.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
+//Подключение к бд
+builder.Services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+//система идентификации
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+//Настрокйка запуска identity server
+builder.Services.AddIdentityServer(options =>
+{
+    options.Events.RaiseErrorEvents = true;
+    options.Events.RaiseInformationEvents = true;
+    options.Events.RaiseFailureEvents = true;
+    options.Events.RaiseSuccessEvents = true;
+    options.EmitStaticAudienceClaim = true;
+})
+    .AddInMemoryIdentityResources(SD.IdentityResources)
+    .AddInMemoryApiScopes(SD.ApiScopes)
+    .AddInMemoryClients(SD.Clients)
+    .AddAspNetIdentity<ApplicationUser>()
+    .AddDeveloperSigningCredential();
+
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -17,7 +45,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseIdentityServer();
 app.UseAuthorization();
 
 app.MapControllerRoute(
