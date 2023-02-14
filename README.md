@@ -138,7 +138,9 @@
     IDbInitializer
     DbInitializer
 42. Настраиваем в Program подключения и запуска Inizialize
-
+43. Настройка методов контроллера атрибутами для авторизованных пользователей в PS.MangoRestaurant.Services.ProductAPI
+44. Настрока сервиса аутентификации и политику авторизации в Program в PS.MangoRestaurant.Services.ProductAPI
+45. Настройка swager для обеспечения безопасности в  PS.MangoRestaurant.Services.ProductAPI
 
 
 

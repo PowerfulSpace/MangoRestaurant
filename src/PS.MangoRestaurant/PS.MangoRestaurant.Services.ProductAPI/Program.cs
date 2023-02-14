@@ -1,5 +1,7 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using PS.MangoRestaurant.Services.ProductAPI;
 using PS.MangoRestaurant.Services.ProductAPI.DbContexts;
 using PS.MangoRestaurant.Services.ProductAPI.Repository;
@@ -21,10 +23,59 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 //Подключеие свагера
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.EnableAnnotations();
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = @"Enter 'Bearer' [space] and your token",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement 
+    {
+        {
+        new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                },
+                Scheme = "oauth2",
+                Name = "Bearer",
+                In = ParameterLocation.Header
+            },
+            new List<string>()
+        }
+    });
+});
 
 //Подключение контроллеров
 builder.Services.AddControllers();
+
+//Настройка сервиса аутентификации
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.Authority = "https://localhost:7168/";
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false
+        };
+    });
+
+//Настройка сервиса политики авторизации
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ApiScope", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "mango");
+    });
+});
 
 var app = builder.Build();
 

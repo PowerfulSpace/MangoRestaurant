@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PS.MangoRestaurant.Services.ProductAPI.Models.Dto;
 using PS.MangoRestaurant.Services.ProductAPI.Repository;
 
@@ -16,6 +17,7 @@ namespace PS.MangoRestaurant.Services.ProductAPI.Controllers
             _response = new ResponseDto();
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<object> Get()
         {
@@ -33,6 +35,7 @@ namespace PS.MangoRestaurant.Services.ProductAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("{id}")]
         public async Task<object> Get(int id)
         {
@@ -50,6 +53,7 @@ namespace PS.MangoRestaurant.Services.ProductAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<object> Post([FromBody] ProductDto productDto)
         {
             try
@@ -66,6 +70,7 @@ namespace PS.MangoRestaurant.Services.ProductAPI.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public async Task<object> Put([FromBody] ProductDto productDto)
         {
             try
@@ -82,6 +87,7 @@ namespace PS.MangoRestaurant.Services.ProductAPI.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles ="Admin")]
         [Route("{id}")]
         public async Task<object> Delete(int id)
         {
