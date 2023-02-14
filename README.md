@@ -141,7 +141,10 @@
 43. Настройка методов контроллера атрибутами для авторизованных пользователей в PS.MangoRestaurant.Services.ProductAPI
 44. Настрока сервиса аутентификации и политику авторизации в Program в PS.MangoRestaurant.Services.ProductAPI
 45. Настройка swager для обеспечения безопасности в  PS.MangoRestaurant.Services.ProductAPI
-
-
-
+46. Настраиваем вызов нашего Identity Server в PS.MangoRestaurant.Web, в appsettongs по ключу API на устанавливаем ключ ссылки на аутентификацию нашего сервиса
+47. Установим Nuget пакеты в Program в PS.MangoRestaurant.Web
+    Microsoft.AspNetCore.Authentication
+    Microsoft.AspNetCore.Authentication.OpenIdConnect
+    System.IdentityModel.Tokens.Jwt
+48. Настройка аутентификации с помощи протокола oidc в Program в PS.MangoRestaurant.Web
 
