@@ -147,4 +147,5 @@
     Microsoft.AspNetCore.Authentication.OpenIdConnect
     System.IdentityModel.Tokens.Jwt
 48. Настройка аутентификации с помощи протокола oidc в Program в PS.MangoRestaurant.Web
-
+49. Добавляем ссылку на главной странице, для аутентифицакии пользователей. В PS.MangoRestaurant.Web в папке Shared добавляем новое частичное представление и подключим в Layout
+    _LoginPartial

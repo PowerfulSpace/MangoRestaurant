@@ -19,7 +19,7 @@ namespace PS.MangoRestaurant.Services.Identity
         public static IEnumerable<ApiScope> ApiScopes =>
             new List<ApiScope>()
             {
-                new ApiScope("Mango", "Mango Sever"),
+                new ApiScope("mango", "Mango Sever"),
                 new ApiScope( name: "read", displayName: "Read your data."),
                 new ApiScope( name: "write", displayName: "Write your data."),
                 new ApiScope( name: "delete", displayName: "Delete your data.")
