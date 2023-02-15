@@ -149,3 +149,8 @@
 48. Настройка аутентификации с помощи протокола oidc в Program в PS.MangoRestaurant.Web
 49. Добавляем ссылку на главной странице, для аутентифицакии пользователей. В PS.MangoRestaurant.Web в папке Shared добавляем новое частичное представление и подключим в Layout
     _LoginPartial
+50. Изменяем Index для корректной работы с identity Serverom в PS.MangoRestaurant.Services.Identity в контроллере Account ( Или если используеться Pages. то в Pages/Account/Login/index.cshtml)
+    Убираем тестовое внедрение TestUserStore. Настраиваем под себя
+    Настраиваем входи Login     Post
+    Настраиваем выход Logoutn   Post
+    
