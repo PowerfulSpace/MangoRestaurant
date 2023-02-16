@@ -59,6 +59,6 @@ using(var scope = app.Services.CreateScope())
     dbInitializer.Initialize();
 }
 
-app.MapRazorPages();
+app.MapRazorPages().RequireAuthorization();
 
 app.Run();

@@ -40,8 +40,8 @@ namespace PS.MangoRestaurant.Services.Identity
                     ClientId = "mango",
                     ClientSecrets = {new Secret("secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.Code,
-                    RedirectUris = { "https://localhost:44358/signin-oidc" },
-                    PostLogoutRedirectUris = { "https://localhost:44358/signout-callback-oidc" },
+                    RedirectUris = { "https://localhost:7066/signin-oidc" },
+                    PostLogoutRedirectUris = { "https://localhost:7066/signout-callback-oidc" },
                     AllowedScopes = new List<string>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
