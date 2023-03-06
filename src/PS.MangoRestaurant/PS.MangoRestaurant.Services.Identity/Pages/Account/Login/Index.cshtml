@@ -48,6 +48,11 @@
                             <button class="btn btn-secondary" name="Input.Button" value="cancel">Cancel</button>
                         </form>
                     </div>
+                    <div class="card-footer">
+                        @*<a href="@Url.Action("OnGet","Register",new {Model.Input.ReturnUrl})">New User? Register</a>*@
+                        <a asp-page="/Account/Register/Index" asp-route-returnUrl="@Model.Input.ReturnUrl">New User? Register</a>
+                        @*<a asp-action="OnGet" asp-page="Register" asp-route-returnUrl="@Model.Input.ReturnUrl">New User? Register</a>*@
+                    </div>
                 </div>
             </div>
         }

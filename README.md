@@ -153,4 +153,6 @@
     Убираем тестовое внедрение TestUserStore. Настраиваем под себя
     Настраиваем входи Login     Post
     Настраиваем выход Logoutn   Post
-    
+51. Регистрация пользователя в PS.MangoRestaurant.Services.Identity
+    Добавим RegisterViewModel
+    Изменил в контроллере Login Post Для правильного принятия пользователя UserLoginSuccessEvent

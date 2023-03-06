@@ -59,7 +59,6 @@ public class Index : PageModel
             // we only have one option for logging in and it's an external provider
             return RedirectToPage("/ExternalLogin/Challenge", new { scheme = View.ExternalLoginScheme, returnUrl });
         }
-
         return Page();
     }
         
@@ -103,7 +102,7 @@ public class Index : PageModel
             {
                 var user = await _userManager.FindByNameAsync(Input.Username);
                 await _events.RaiseAsync(
-                    new UserLoginSuccessEvent(user.UserName, user.Id, user.FirstName + " " + user.LastName,
+                    new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName,
                     clientId: context?.Client.ClientId));
 
                 if(context != null)

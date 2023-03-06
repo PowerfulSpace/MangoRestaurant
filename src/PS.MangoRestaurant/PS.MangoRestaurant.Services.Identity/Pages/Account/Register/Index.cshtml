@@ -1,0 +1,64 @@
+﻿@page
+@model PS.MangoRestaurant.Services.Identity.Pages.Account.Register.Index;
+
+@{
+    List<string> roles = (List<string>)ViewData["Roles"]!;
+}
+
+<div class="login-page">
+    <div class="lead">
+        <h1>Register</h1>
+        <p>Choose how to register</p>
+    </div>
+
+    <partial name="_ValidationSummary" />
+
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Local Account Register</h2>
+                </div>
+
+                <div class="card-body">
+                    <form asp-route="Login" method="post">
+                        <input type="hidden" asp-for="InputModel.ReturnUrl" />
+
+                        <div class="form-group">
+                            <label asp-for="InputModel.Username"></label>
+                            <input class="form-control" placeholder="Username" asp-for="InputModel.Username" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="InputModel.Email"></label>
+                            <input class="form-control" placeholder="email" asp-for="InputModel.Email" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="InputModel.FirstName"></label>
+                            <input class="form-control" placeholder="first name" asp-for="InputModel.FirstName" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="InputModel.LastNAme"></label>
+                            <input class="form-control" placeholder="last name" asp-for="InputModel.LastNAme" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="InputModel.Password"></label>
+                            <input type="password" class="form-control" placeholder="Password" asp-for="InputModel.Password" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="InputModel.RoleName"></label>
+                            <select asp-for="InputModel.RoleName" class="form-control" asp-items="@(new SelectList(roles))"></select>
+                        </div>
+                        <button class="btn btn-primary" name="button" value="Register" type="submit">Register</button>
+                        <button class="btn btn-secondary" name="button" value="cancel">Cancel</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <a href="@Url.Action("Login",new {Model.InputModel.ReturnUrl })">Login</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
