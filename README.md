@@ -156,7 +156,7 @@
 51. Регистрация пользователя в PS.MangoRestaurant.Services.Identity
     Добавим RegisterViewModel
     Изменил в контроллере Login Post Для правильного принятия пользователя UserLoginSuccessEvent
-52. Настраиваем передачу требований в токоне. PS.MangoRestaurant.Services.Identity создаёмновую директорию Services и добавляем класс ProfileService который будет наследоваться от IProfileService и реализуем метоыды. Это нужно для доступа ко всем данным о пользователи, что бы настроить под себя
+52. Настраиваем передачу требований в токоне. PS.MangoRestaurant.Services.Identity создаёмновую директорию Services и добавляем класс ProfileService который будет наследоваться от IProfileService и реализуем метоыды. Это нужно для доступа ко всем данным о пользователи, что бы настроить под себя. И добавим в Program в контейнер зависимостей наш сервис
     GetProfileDataAsync
     IsActiveAsync
 53. В PS.MangoRestaurant.Web в контроллере Home методе Login проверяем какой приходит токен

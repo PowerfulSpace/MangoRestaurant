@@ -1,9 +1,11 @@
+using Duende.IdentityServer.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PS.MangoRestaurant.Services.Identity;
 using PS.MangoRestaurant.Services.Identity.DbContext;
 using PS.MangoRestaurant.Services.Identity.Initializer;
 using PS.MangoRestaurant.Services.Identity.Models;
+using PS.MangoRestaurant.Services.Identity.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +37,7 @@ builder.Services.AddIdentityServer(options =>
 
 //Настройка инициализации
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
+builder.Services.AddScoped<IProfileService, ProfileService>();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
