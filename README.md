@@ -160,3 +160,6 @@
     GetProfileDataAsync
     IsActiveAsync
 53. В PS.MangoRestaurant.Web в контроллере Home методе Login проверяем какой приходит токен
+54. в интерфейсе IProductService в наши методы, добавляем параметр string token. В приложении PS.MangoRestaurant.Web
+55. в ProductService приложения PS.MangoRestaurant.Web изменяем тип входных параметров добавляя string token и устанавливая этот параметр в свойство AccessToken, и так же изменяем контроллер ProductController
+Добавляя в методы получения токена и передачу в методы

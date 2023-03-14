@@ -35,7 +35,7 @@ namespace PS.MangoRestaurant.Services.Identity.Services
             claims = claims.Where(cliam => context.RequestedClaimTypes.Contains(cliam.Type)).ToList();
 
             claims.Add(new Claim(JwtClaimTypes.FamilyName, user.LastName));
-            claims.Add(new Claim(JwtClaimTypes.FamilyName, user.FirstName));
+            claims.Add(new Claim(JwtClaimTypes.GivenName, user.FirstName));
 
             if (_userManager.SupportsUserRole)
             {

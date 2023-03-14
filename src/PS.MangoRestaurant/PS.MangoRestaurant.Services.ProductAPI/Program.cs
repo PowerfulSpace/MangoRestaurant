@@ -63,7 +63,7 @@ builder.Services.AddAuthentication("Bearer")
         options.Authority = "https://localhost:7168/";
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateIssuer = false
+            ValidateAudience = false
         };
     });
 
@@ -88,7 +88,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
