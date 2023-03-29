@@ -107,6 +107,9 @@
     ProductDelete
 
 
+
+
+
                         Identity Server
 32. Перейдём на сайт: https://duendesoftware.com/ и находим команду
     https://docs.duendesoftware.com/identityserver/v6/quickstarts/0_overview/
@@ -163,3 +166,14 @@
 54. в интерфейсе IProductService в наши методы, добавляем параметр string token. В приложении PS.MangoRestaurant.Web
 55. в ProductService приложения PS.MangoRestaurant.Web изменяем тип входных параметров добавляя string token и устанавливая этот параметр в свойство AccessToken, и так же изменяем контроллер ProductController
 Добавляя в методы получения токена и передачу в методы
+
+
+
+
+                    Настройка страницы Home и Detail
+56. Вывод всех товаров на глайной странице в PS.MangoRestaurant.Web
+57. Создание представления для товаров
+58. Создание метода Details а так же его представления
+59. Изменил модель ProductDto в PS.MangoRestaurant.Web
+    -добавим новое свойство Count
+    -Установим конструктор который будет устанавливать по умолчанию значение count в 1

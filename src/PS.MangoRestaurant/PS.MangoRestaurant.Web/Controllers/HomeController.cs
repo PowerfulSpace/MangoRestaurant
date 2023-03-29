@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using PS.MangoRestaurant.Web.Models;
+using PS.MangoRestaurant.Web.Services.IServices;
 using System.Diagnostics;
 
 namespace PS.MangoRestaurant.Web.Controllers
@@ -9,15 +11,39 @@ namespace PS.MangoRestaurant.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IProductService _productService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IProductService productService)
         {
             _logger = logger;
+            _productService = productService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var list = new List<ProductDto>();
+            var response = await _productService.GetAllProductsAsync<ResponseDto>("");
+
+            if(response != null && response.IsSuccess)
+            {
+                list = JsonConvert.DeserializeObject<List<ProductDto>>(Convert.ToString(response.Result));
+            }
+
+            return View(list);
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Details(int productId)
+        {
+            var model = new ProductDto();
+            var response = await _productService.GetProductByIdAsync<ResponseDto>(productId, "");
+
+            if (response != null && response.IsSuccess)
+            {
+                model = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(response.Result));
+            }
+
+            return View(model);
         }
 
         [Authorize]

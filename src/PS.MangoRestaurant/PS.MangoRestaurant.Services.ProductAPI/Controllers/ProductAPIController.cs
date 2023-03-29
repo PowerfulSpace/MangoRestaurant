@@ -17,7 +17,6 @@ namespace PS.MangoRestaurant.Services.ProductAPI.Controllers
             _response = new ResponseDto();
         }
 
-        [Authorize]
         [HttpGet]
         public async Task<object> Get()
         {
@@ -35,7 +34,6 @@ namespace PS.MangoRestaurant.Services.ProductAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         [Route("{id}")]
         public async Task<object> Get(int id)
         {
