@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication;
 using PS.MangoRestaurant.Web;
 using PS.MangoRestaurant.Web.Services;
 using PS.MangoRestaurant.Web.Services.IServices;
@@ -26,6 +27,9 @@ builder.Services.AddAuthentication(options =>
         options.ClientId = "mango";
         options.ClientSecret = "secret";
         options.ResponseType = "code";
+
+        options.ClaimActions.MapJsonKey("role", "role", "role");
+        options.ClaimActions.MapJsonKey("sub", "sub", "sub");
 
         options.TokenValidationParameters.NameClaimType = "name";
         options.TokenValidationParameters.RoleClaimType = "role";
