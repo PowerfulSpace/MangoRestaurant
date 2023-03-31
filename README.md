@@ -177,3 +177,33 @@
 59. Изменил модель ProductDto в PS.MangoRestaurant.Web
     -добавим новое свойство Count
     -Установим конструктор который будет устанавливать по умолчанию значение count в 1
+
+
+
+                  Корзина покупок
+60. Создание проекта PS.MangoRestaurant.Services.ShoppingCartAPI
+61. Создание строки подключения к бд в appsetings
+62. Добавление пакетов NUGEt
+    - AutoMapper
+    - AutoMapper.Extensions.Microsoft.DependencyInjection
+    - Microsoft.AspNetCore.Authentication.JwtBearer
+    - Microsoft.EntityFrameworkCore.Design
+    - Microsoft.EntityFrameworkCore.SqlServer
+    - Microsoft.EntityFrameworkCore.Tools
+    - Newtonsoft.Json
+    - Swashbuckle.AspNetCore.Annotations
+    - Swashbuckle.AspNetCore.SwaggerUI
+63. Настройка класса Program
+64. Создание класса ApplicationDbContext в папке DbContext
+65. Создаём класс MappingConfig
+66. Создание модели
+    - Product
+    - CartHeader
+    - CartDetails
+    - Cart
+67. Создание моделей DTO
+    - ResponseDto
+    - ProductDto
+    - CartHeaderDto
+    - CartDetailsDto
+    - CartDto
