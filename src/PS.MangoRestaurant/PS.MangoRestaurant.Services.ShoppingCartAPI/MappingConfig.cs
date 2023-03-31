@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using PS.MangoRestaurant.Services.ShoppingCartAPI.Models;
+using PS.MangoRestaurant.Services.ShoppingCartAPI.Models.Dto;
 
 namespace PS.MangoRestaurant.Services.ShoppingCartAPI
 {
@@ -8,8 +10,15 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI
         {
             var mappingConfig = new MapperConfiguration(config =>
             {
-                //config.CreateMap<ProductDto, Product>();
-                //config.CreateMap<Product, ProductDto>();
+                config.CreateMap<Product, ProductDto>();
+                config.CreateMap<Cart, CartDto>();
+                config.CreateMap<CartHeader, CartHeaderDto>();
+                config.CreateMap<CartDetails, CartDetailsDto>();
+
+                config.CreateMap<ProductDto, Product>();
+                config.CreateMap<CartDto, Cart>();
+                config.CreateMap<CartHeaderDto, CartHeader>();
+                config.CreateMap<CartDetailsDto, CartDetails>();
             });
 
             return mappingConfig;

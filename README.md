@@ -207,3 +207,5 @@
     - CartHeaderDto
     - CartDetailsDto
     - CartDto
+68. Создание миграции
+69. Настройка MappingConfig
