@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using PS.MangoRestaurant.Services.ShoppingCartAPI;
 using PS.MangoRestaurant.Services.ShoppingCartAPI.DbContexts;
+using PS.MangoRestaurant.Services.ShoppingCartAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,7 @@ builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 //Подключение внедрений зависимостей
-//builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICartRepository, CartRepository>();
 
 builder.Services.AddControllers();
 
