@@ -209,3 +209,6 @@
     - CartDto
 68. Создание миграции
 69. Настройка MappingConfig
+70. Создадим интерфейс репозитория и реализуем его
+    - CartRepository
+    - ICartRepository
