@@ -27,6 +27,7 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Repository
 
             return _mapper.Map<Cart, CartDto>(cart);
         }
+
         public async Task<CartDto> CreateUpdateCart(CartDto cartDto)
         {
 
@@ -75,10 +76,30 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Repository
             return _mapper.Map<Cart, CartDto>(cart);
 
         }
+
         public async Task<bool> RemoveFromCart(int cartDetailsId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var cartDetails = await _db.CartDetails.FirstOrDefaultAsync(u => u.CartDetailsId == cartDetailsId);
+                int totalCountOfCartItems = _db.CartDetails.Where(u => u.CartHeaderId == cartDetails!.CartHeaderId).Count();
+
+                _db.CartDetails.Remove(cartDetails!);
+
+                if (totalCountOfCartItems == 1)
+                {
+                    var cartHeaderToRemove = await _db.CartHeaders.FirstOrDefaultAsync(u => u.CartHeaderId == cartDetails!.CartHeaderId);
+                    _db.CartHeaders.Remove(cartHeaderToRemove!);
+                }
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
+
         public async Task<bool> ClearCart(string userId)
         {
             var cartHeaderFromDb = await _db.CartHeaders.FirstOrDefaultAsync(u=>u.UserId == userId);
