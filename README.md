@@ -213,3 +213,11 @@
     - CartRepository
     - ICartRepository
 80. Создадим контроллер CartController
+
+
+
+                   Подключение API корзины к основному WEB приложению
+81. Создание dto моделей для работы с корзиной в PS.MangoRestaurant.Web
+    - CartHeaderDto
+    - CartDetailsDto
+    - CartDto

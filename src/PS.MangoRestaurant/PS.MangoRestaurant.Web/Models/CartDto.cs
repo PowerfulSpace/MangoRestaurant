@@ -1,4 +1,4 @@
-﻿namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Models.Dto
+﻿namespace PS.MangoRestaurant.Web.Models
 {
     public class CartDto
     {
