@@ -13,6 +13,9 @@ SD.ShoppingCartAPIBase = builder.Configuration["ServiceUrls:ShoppingCartAPI"];
 builder.Services.AddHttpClient<IProductService, ProductService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 
+builder.Services.AddHttpClient<ICartService, CartService>();
+builder.Services.AddScoped<ICartService, CartService>();
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddAuthentication(options =>
