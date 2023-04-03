@@ -44,20 +44,20 @@
                     {
                         <div class="row h-100">
                             <div class="col-4 col-md-2 text-center py-2">
-                                <img src="https://via.placeholder.com/150" class="rounded" width="100%" />
+                                <img src="@cartObj.Product.ImageUrl" class="rounded" width="100%" />
                             </div>
                             <div class="col-8 col-md-5">
-                                <h5>Product.Name</h5>
-                                <div style="font-size:11px;">Product.Description</div>
+                                <h5>@cartObj.Product.Name</h5>
+                                <div style="font-size:11px;">@Html.Raw(cartObj.Product.Description)</div>
                             </div>
                             <div class="col-3 col-md-2 pt-md-4" style="font-size:11px;">
-                                <span style="font-size:17px;"> Product.Price</span>
+                                <span style="font-size:17px;"> @string.Format("{0:c}",cartObj.Product.Price)</span>
                             </div>
                             <div class="col-3 col-md-2 pt-md-4" style="font-size:11px;">
-                                <span style="font-size:17px;"> Count</span>
+                                <span style="font-size:17px;"> @cartObj.Product.Count</span>
                             </div>
                             <div class="col-2 col-lg-1 p-0 pt-lg-4 text-center">
-                                <a class="btn btn-outline-danger">
+                                <a asp-action="Remove" asp-route-cartDetailsId="@cartObj.CartDetailsId" class="btn btn-outline-danger">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </div>
@@ -72,7 +72,7 @@
                             <button type="submit" class="btn-success"> Apply </button>
                         </div>
                         <div class="col-6 text-end">
-                            <span class="text-danger" style="font-size:21px;">  Order Total : Order Total <br /></span>
+                            <span class="text-danger" style="font-size:21px;">  Order Total : @string.Format("{0:c}",Model.CartHeader.OrderTotal) <br /></span>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                     <div class="col-6 col-md-3 offset-md-6">
                     </div>
                     <div class="col-6 col-md-3">
-                        <a class="btn btn-success form-control ">
+                        <a asp-action="Checkout" class="btn btn-success form-control ">
                             <span>Checkout</span>
                         </a>
                     </div>
