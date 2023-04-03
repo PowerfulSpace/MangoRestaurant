@@ -228,3 +228,6 @@
     - ICartService
     - CartService
 86. Подключить внедрение зависимости в проекте PS.MangoRestaurant.Web для корзины заказов
+87. Создание контроллера CartController
+88. Создание представления CartIndex
+89. Поздание ссылки в Layout на Корзину покупок
