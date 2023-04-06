@@ -41,7 +41,15 @@ builder.Services.AddAuthentication(options =>
         options.SaveTokens = true;
     });
 
-
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("CorsPolicy", policy =>
+//    {
+//        policy.AllowAnyMethod()
+//            .AllowAnyHeader()
+//            .AllowAnyOrigin();
+//    });
+//});
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
@@ -52,10 +60,15 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+//app.UseCors("CorsPolicy");
+
 app.UseAuthentication();
 app.UseAuthorization();
 

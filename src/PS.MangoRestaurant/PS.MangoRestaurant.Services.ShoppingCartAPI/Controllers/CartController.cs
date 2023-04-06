@@ -6,16 +6,16 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Controllers
 {
     [ApiController]
     [Route("api/cart")]
-    public class CartController : Controller
+    public class CartController : ControllerBase
     {
 
-        private readonly ResponseDto _response;
-        protected ICartRepository _cartRepository;
+        protected ResponseDto _response;
+        private readonly ICartRepository _cartRepository;
 
         public CartController(ICartRepository cartRepository)
         {
             _cartRepository = cartRepository;
-            _response = new ResponseDto();
+            this._response = new ResponseDto();
         }
 
         [HttpGet("GetCart/{userId}")]

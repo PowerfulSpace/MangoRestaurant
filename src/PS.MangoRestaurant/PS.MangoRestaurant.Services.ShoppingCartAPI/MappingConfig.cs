@@ -10,6 +10,12 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI
         {
             var mappingConfig = new MapperConfiguration(config =>
             {
+
+                //config.CreateMap<Product, ProductDto>().ReverseMap();
+                //config.CreateMap<Cart, CartDto>().ReverseMap();
+                //config.CreateMap<CartHeader, CartHeaderDto>().ReverseMap();
+                //config.CreateMap<CartDetails, CartDetailsDto>().ReverseMap();
+
                 config.CreateMap<Product, ProductDto>();
                 config.CreateMap<Cart, CartDto>();
                 config.CreateMap<CartHeader, CartHeaderDto>();
