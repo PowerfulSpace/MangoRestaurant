@@ -11,7 +11,7 @@ using PS.MangoRestaurant.Services.ShoppingCartAPI.DbContexts;
 namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230331010217_AddProductAndCartModels")]
+    [Migration("20230406111533_AddProductAndCartModels")]
     partial class AddProductAndCartModels
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -19,13 +19,13 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Repository
 
         public async Task<CartDto> GetCartByUserId(string userId)
         {
-            var cart = new Cart()
+            Cart cart = new Cart()
             {
                 CartHeader = await _db.CartHeaders.FirstOrDefaultAsync(u => u.UserId == userId)
             };
-            cart.CartDetails = _db.CartDetails.Where(u => u.CartHeaderId == cart.CartHeader!.CartHeaderId).Include(u => u.Product);
+            cart.CartDetails = _db.CartDetails.Where(u => u.CartHeaderId == cart.CartHeader.CartHeaderId).Include(u => u.Product);
 
-            return _mapper.Map<Cart, CartDto>(cart);
+            return _mapper.Map<CartDto>(cart);
         }
 
         public async Task<CartDto> CreateUpdateCart(CartDto cartDto)

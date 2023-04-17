@@ -79,7 +79,7 @@ namespace PS.MangoRestaurant.Web.Controllers
             cartDto.CartDetails = cartDetailsDtos;
 
             var accessToken = await HttpContext.GetTokenAsync("access_token");
-            var addToCartResp = await _cartService.AddToCartAsync<ResponseDto>(cartDto, accessToken!);
+            var addToCartResp = await _cartService.AddToCartAsync<ResponseDto>(cartDto, accessToken);
 
             if (addToCartResp != null && addToCartResp.IsSuccess)
             {
