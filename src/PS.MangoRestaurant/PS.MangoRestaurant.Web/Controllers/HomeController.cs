@@ -61,7 +61,7 @@ namespace PS.MangoRestaurant.Web.Controllers
                 }
             };
 
-            CartDetailsDto cartDetailsDto = new()
+            CartDetailsDto cartDetailsDto = new CartDetailsDto()
             {
                 Count = productDto.Count,
                 ProductId = productDto.ProductId
@@ -92,7 +92,6 @@ namespace PS.MangoRestaurant.Web.Controllers
         [Authorize]
         public async Task<IActionResult> Login()
         {
-            var accessToken = await HttpContext.GetTokenAsync("access_token");
             return RedirectToAction(nameof(Index));
         }
 
