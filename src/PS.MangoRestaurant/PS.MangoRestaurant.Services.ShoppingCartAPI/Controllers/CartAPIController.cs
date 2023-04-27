@@ -4,7 +4,6 @@ using PS.MangoRestaurant.Services.ShoppingCartAPI.Repository;
 
 namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Controllers
 {
-    [ApiController]
     [Route("api/cart")]
     public class CartAPIController : ControllerBase
     {
@@ -35,7 +34,7 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Controllers
         }
 
         [HttpPost("AddCart")]
-        public async Task<object> AddCart(CartDto cartDto)
+        public async Task<object> AddCart([FromBody] CartDto cartDto)
         {
             try
             {
@@ -51,7 +50,7 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Controllers
         }
 
         [HttpPost("UpdateCart")]
-        public async Task<object> UpdateCart(CartDto cartDto)
+        public async Task<object> UpdateCart([FromBody] CartDto cartDto)
         {
             try
             {
