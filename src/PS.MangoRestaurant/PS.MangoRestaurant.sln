@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.MangoRestaurant.Services
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.MangoRestaurant.Services.Identity", "PS.MangoRestaurant.Services.Identity\PS.MangoRestaurant.Services.Identity.csproj", "{278D7445-35F3-4319-8488-F3CCE70FA8FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.MangoRestaurant.Services.ShoppingCartAPI", "PS.MangoRestaurant.Services.ShoppingCartAPI\PS.MangoRestaurant.Services.ShoppingCartAPI.csproj", "{D274EA67-91F6-427E-AB56-4873EC898FD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.MangoRestaurant.Services.ShoppingCartAPI", "PS.MangoRestaurant.Services.ShoppingCartAPI\PS.MangoRestaurant.Services.ShoppingCartAPI.csproj", "{D274EA67-91F6-427E-AB56-4873EC898FD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.MangoRestaurant.Services.CouponAPI", "PS.MangoRestaurant.Services.CouponAPI\PS.MangoRestaurant.Services.CouponAPI.csproj", "{96F4DCD5-EB17-4B11-AF3B-B2748FC8010A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{D274EA67-91F6-427E-AB56-4873EC898FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D274EA67-91F6-427E-AB56-4873EC898FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D274EA67-91F6-427E-AB56-4873EC898FD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96F4DCD5-EB17-4B11-AF3B-B2748FC8010A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96F4DCD5-EB17-4B11-AF3B-B2748FC8010A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96F4DCD5-EB17-4B11-AF3B-B2748FC8010A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96F4DCD5-EB17-4B11-AF3B-B2748FC8010A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{3E81DD0F-ACA2-42F7-99C1-C21EC389EF57} = {14A9B7A2-B783-44D9-9161-F90302B48697}
 		{278D7445-35F3-4319-8488-F3CCE70FA8FE} = {14A9B7A2-B783-44D9-9161-F90302B48697}
 		{D274EA67-91F6-427E-AB56-4873EC898FD4} = {14A9B7A2-B783-44D9-9161-F90302B48697}
+		{96F4DCD5-EB17-4B11-AF3B-B2748FC8010A} = {14A9B7A2-B783-44D9-9161-F90302B48697}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8576052-91ED-410D-B84B-1895385B1580}
