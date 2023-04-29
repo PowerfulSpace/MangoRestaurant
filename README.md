@@ -237,3 +237,14 @@
                                    Купон
 90. Создание сервиса по работе с купонами  PS.MangoRestaurant.Services.CouponAPI
 91. Добавление пакетов nuget
+    - AutoMapper
+    - AutoMapper.Extensions.Microsoft.DependencyInjection
+    - Microsoft.AspNetCore.Authentication.JwtBearer
+    - Microsoft.EntityFrameworkCore.SqlServer
+    - Microsoft.EntityFrameworkCore.Tools
+    - Swashbuckle.AspNetCore.Annotations
+    - Swashbuckle.AspNetCore.SwaggerUI
+
+
+
+
