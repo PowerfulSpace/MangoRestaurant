@@ -244,7 +244,19 @@
     - Microsoft.EntityFrameworkCore.Tools
     - Swashbuckle.AspNetCore.Annotations
     - Swashbuckle.AspNetCore.SwaggerUI
-
-
-
-
+92. Создание директорий
+    - DbContext
+    - Repository
+    - Models
+        -Dto
+93. Подлючение к бд в appsettings
+94. Создание моделей
+    - ResponseDto
+    - Coupon
+    - CouponDto
+95. Создание ApplicationDbContext
+96. Создание MappingConfig
+97. Cоздание репозитория
+    - ICouponRepository
+    - CouponRepository
+98. Настройка Program

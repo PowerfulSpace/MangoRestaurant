@@ -10,7 +10,7 @@ using PS.MangoRestaurant.Services.ProductAPI.DbContexts;
 
 namespace PS.MangoRestaurant.Services.ProductAPI.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(ApplicationDbContexts))]
     [Migration("20230115224237_Init")]
     partial class Init
     {

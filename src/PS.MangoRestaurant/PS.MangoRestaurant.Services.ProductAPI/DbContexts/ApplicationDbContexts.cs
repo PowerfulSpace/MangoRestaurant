@@ -3,9 +3,9 @@ using PS.MangoRestaurant.Services.ProductAPI.Models;
 
 namespace PS.MangoRestaurant.Services.ProductAPI.DbContexts
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContexts : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationDbContexts(DbContextOptions<ApplicationDbContexts> options) : base(options)
         {
 
         }

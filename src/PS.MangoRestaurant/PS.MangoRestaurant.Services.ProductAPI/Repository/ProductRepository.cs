@@ -8,10 +8,10 @@ namespace PS.MangoRestaurant.Services.ProductAPI.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly ApplicationDbContext _db;
+        private readonly ApplicationDbContexts _db;
         private readonly IMapper _mapper;
 
-        public ProductRepository(ApplicationDbContext db, IMapper mapper)
+        public ProductRepository(ApplicationDbContexts db, IMapper mapper)
         {
             _db = db;
             _mapper = mapper;

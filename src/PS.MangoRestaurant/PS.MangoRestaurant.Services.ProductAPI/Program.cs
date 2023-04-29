@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 //                                                Add services to the container.
 
 //Подключение к бд
-builder.Services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<ApplicationDbContexts>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //Подключение автомаппера
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
