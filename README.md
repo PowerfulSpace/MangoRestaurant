@@ -260,3 +260,4 @@
     - ICouponRepository
     - CouponRepository
 98. Настройка Program
+99. Выполнить миграцию
