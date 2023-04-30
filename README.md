@@ -265,3 +265,6 @@
 101. Реализация репозитория
 102. Реализация контроллера
 103. Настройка в основном проекте ссылки на url апи купона
+104. в проекте PS.MangoRestaurant.Services.ShoppingCartAPI добавляем в репозиторий методы на работу с купонами и реализуем их
+    - Task<bool> ApplyCoupon(string userId, string coupon);
+    - Task<bool> RemoveCoupon(string userId);
