@@ -115,5 +115,24 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Repository
             }
             return false;
         }
+
+
+        public async Task<bool> ApplyCoupon(string userId, string coupon)
+        {
+            var cartFromDb = await _db.CartHeaders.FirstOrDefaultAsync(u => u.UserId == userId);
+            cartFromDb!.CouponCode = coupon;
+            _db.CartHeaders.Update(cartFromDb);
+            await _db.SaveChangesAsync();
+            return true;
+        }
+        public async Task<bool> RemoveCoupon(string userId)
+        {
+            var cartFromDb = await _db.CartHeaders.FirstOrDefaultAsync(u => u.UserId == userId);
+            cartFromDb!.CouponCode = "";
+            _db.CartHeaders.Update(cartFromDb);
+            await _db.SaveChangesAsync();
+            return true;
+        }
+
     }
 }
