@@ -268,3 +268,4 @@
 104. в проекте PS.MangoRestaurant.Services.ShoppingCartAPI добавляем в репозиторий методы на работу с купонами и реализуем их
     - Task<bool> ApplyCoupon(string userId, string coupon);
     - Task<bool> RemoveCoupon(string userId);
+105. Резализуем работу методы с купонами в контроллере корзины
