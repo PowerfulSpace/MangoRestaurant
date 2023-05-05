@@ -17,7 +17,7 @@ namespace PS.MangoRestaurant.Web.Services
             {
                 ApiType = SD.ApiType.GET,
                 Data= couponCode,
-                Url = SD.CouponAPIBase + "",
+                Url = SD.CouponAPIBase + "/api/coupon/" + couponCode,
                 AccessToken = token
             });
         }
