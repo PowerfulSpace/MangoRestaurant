@@ -275,4 +275,4 @@
      - Task<T> RemoveCoupon<T>(string userId, string token = null!);
 108. Добавляем модель в основной проект CouponDto
 109. Изменяем в CartController метод LoadCartDtoBasedOnLoggedInUser, реализуем проверку и работу с купоном
-110. Добавляем нужные свойства для модели CartHeaderDto для работы с купоном
+110. Добавляем нужные свойства для заказа модели CartHeaderDto для работы с купоном

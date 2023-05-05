@@ -45,7 +45,8 @@ namespace PS.MangoRestaurant.Web.Controllers
                     
                     if(coupon != null && coupon.IsSuccess)
                     {
-                        //var couponObj = JsonConvert.DeserializeObject<CouponDto>();
+                        var couponObj = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(coupon.Result));
+                        cartDto.CartHeader.DiscountTotal = couponObj.DiscountAmount;
                     }
 
                 }
@@ -54,6 +55,8 @@ namespace PS.MangoRestaurant.Web.Controllers
                 {
                     cartDto.CartHeader.OrderTotal += (detail.Product.Price * detail.Count);
                 }
+                cartDto.CartHeader.OrderTotal -= cartDto.CartHeader.DiscountTotal;
+
             }
             return cartDto;
         }
