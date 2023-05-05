@@ -58,5 +58,10 @@ namespace PS.MangoRestaurant.Web.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ActionName("ApplyCoupon")]
+        public async Task<IActionResult> ApplyCoupon(CartDto cartDto)
+        {
+        }
     }
 }

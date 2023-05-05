@@ -270,3 +270,6 @@
     - Task<bool> RemoveCoupon(string userId);
 105. Резализуем работу методы с купонами в контроллере корзины
 106. Реализуем работу с купоном в представлении cartIndex
+107. Добавляем в интерфейс сервисов ICartService методы, и реализуем
+     - Task<T> ApplyCoupon<T>(CartDto cartDto, string token = null!);
+     - Task<T> RemoveCoupon<T>(string userId, string token = null!);
