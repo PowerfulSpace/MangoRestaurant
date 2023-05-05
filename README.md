@@ -269,3 +269,4 @@
     - Task<bool> ApplyCoupon(string userId, string coupon);
     - Task<bool> RemoveCoupon(string userId);
 105. Резализуем работу методы с купонами в контроллере корзины
+106. Реализуем работу с купоном в представлении cartIndex
