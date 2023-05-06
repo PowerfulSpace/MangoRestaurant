@@ -278,3 +278,6 @@
 110. Добавляем нужные свойства для заказа модели CartHeaderDto для работы с купоном
 112. Редактируем страицу корзины, добавляем в представление отображение скидки в случае правильного куппона
 113. Создаём новый экшион метод Checkout и создаём для него представление
+114. Добавим css bootstrap-datetimepicker.min.css и js bootstrap-datetimepicker.min.js для работы с форматом даты нашей проверки заказа
+https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css
+https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js
