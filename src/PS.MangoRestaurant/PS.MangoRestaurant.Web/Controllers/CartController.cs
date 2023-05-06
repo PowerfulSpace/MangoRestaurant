@@ -103,5 +103,11 @@ namespace PS.MangoRestaurant.Web.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Checkout()
+        {
+            return View(await LoadCartDtoBasedOnLoggedInUser());
+        }
     }
 }
