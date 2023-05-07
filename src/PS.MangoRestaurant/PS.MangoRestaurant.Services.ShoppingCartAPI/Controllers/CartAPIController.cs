@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PS.MangoRestaurant.MessageBus;
 using PS.MangoRestaurant.Services.ShoppingCartAPI.Messages;
 using PS.MangoRestaurant.Services.ShoppingCartAPI.Models.Dto;
 using PS.MangoRestaurant.Services.ShoppingCartAPI.Repository;
@@ -11,11 +12,13 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Controllers
 
         protected ResponseDto _response;
         private readonly ICartRepository _cartRepository;
+        private readonly IMessageBus _messageBus;
 
-        public CartAPIController(ICartRepository cartRepository)
+        public CartAPIController(ICartRepository cartRepository, IMessageBus messageBus)
         {
             _cartRepository = cartRepository;
             this._response = new ResponseDto();
+            _messageBus = messageBus;
         }
 
         [HttpGet("GetCart/{userId}")]
@@ -150,5 +153,29 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Controllers
             }
             return _response;
         }
+
+        #region Azure test
+
+        [HttpPost("Checkout")]
+        public async Task<object> AzureCheckout([FromBody] CheckoutHeaderDto checkoutHeader)
+        {
+            try
+            {
+                CartDto cartDto = await _cartRepository.GetCartByUserId(checkoutHeader.UserId);
+                if (cartDto == null) { return BadRequest(); }
+                checkoutHeader.CartDetails = cartDto.CartDetails;
+
+                await _messageBus.PublishMessage(checkoutHeader, "checkoutmessagetopic");
+            }
+            catch (Exception e)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { e.ToString() };
+            }
+            return _response;
+        }
+
+        #endregion
+
     }
 }

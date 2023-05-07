@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using PS.MangoRestaurant.MessageBus;
 using PS.MangoRestaurant.Services.ShoppingCartAPI;
 using PS.MangoRestaurant.Services.ShoppingCartAPI.DbContexts;
 using PS.MangoRestaurant.Services.ShoppingCartAPI.Repository;
@@ -75,6 +76,12 @@ builder.Services.AddAuthorization(options =>
         policy.RequireClaim("scope", "mango");
     });
 });
+
+#region Azure test
+
+builder.Services.AddSingleton<IMessageBus, AzureServiceBusMessageBus>();
+
+#endregion
 
 
 var app = builder.Build();
