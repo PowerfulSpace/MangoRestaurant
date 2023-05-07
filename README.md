@@ -293,3 +293,12 @@ https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/boots
 117. Добавлен метод действий в апишку корзины Checkout
 118. Добавить в основное приложение в сервис корзины новый метод Checkout и реализовать его
 119. Добавить метод Confirmation для отображение страницы о успешно выполненном заказе
+
+
+
+                                   Azure
+120. Создаём Новую директорию в решении
+    - Integration
+121. Создаём новый проект, библиотка классов
+    - PS.MangoRestaurant.MessageBus
+
