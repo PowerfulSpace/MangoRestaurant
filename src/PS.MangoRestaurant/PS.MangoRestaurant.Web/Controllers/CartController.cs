@@ -104,13 +104,12 @@ namespace PS.MangoRestaurant.Web.Controllers
             return View();
         }
 
-        [HttpGet]
         public async Task<IActionResult> Checkout()
         {
             return View(await LoadCartDtoBasedOnLoggedInUser());
         }
 
-        [HttpPost("Checkout")]
+        [HttpPost]
         public async Task<IActionResult> Checkout(CartDto cartDto)
         {
             try
@@ -125,7 +124,6 @@ namespace PS.MangoRestaurant.Web.Controllers
             }
         }
 
-        [HttpGet]
         public async Task<IActionResult> Confirmation()
         {
             return View();
