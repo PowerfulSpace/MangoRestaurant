@@ -281,3 +281,15 @@
 114. Добавим css bootstrap-datetimepicker.min.css и js bootstrap-datetimepicker.min.js для работы с форматом даты нашей проверки заказа
 https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css
 https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js
+
+
+
+
+                                   Checkout
+115. в приложении PS.MangoRestaurant.Services.ShoppingCartAPI создаём директорию для брокера сообщений
+    - Messages
+116. В Messages создаём класс. Теперь такое сообщение будет передовать все данные для заголовка заказа
+    - CheckoutHeaderDto
+117. Добавлен метод действий в апишку корзины Checkout
+118. Добавить в основное приложение в сервис корзины новый метод Checkout и реализовать его
+119. Добавить метод Confirmation для отображение страницы о успешно выполненном заказе

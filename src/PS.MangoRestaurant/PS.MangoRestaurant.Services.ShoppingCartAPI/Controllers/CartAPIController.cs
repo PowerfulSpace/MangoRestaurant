@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PS.MangoRestaurant.Services.ShoppingCartAPI.Messages;
 using PS.MangoRestaurant.Services.ShoppingCartAPI.Models.Dto;
 using PS.MangoRestaurant.Services.ShoppingCartAPI.Repository;
 
@@ -122,6 +123,25 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Controllers
             {
                 var isSuccess = await _cartRepository.RemoveCoupon(userId);
                 _response.Result = isSuccess;
+            }
+            catch (Exception e)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { e.ToString() };
+            }
+            return _response;
+        }
+
+        [HttpPost("Checkout")]
+        public async Task<object> Checkout([FromBody] CheckoutHeaderDto checkoutHeader)
+        {
+            try
+            {
+                CartDto cartDto = await _cartRepository.GetCartByUserId(checkoutHeader.UserId);
+                if(cartDto == null) { return BadRequest(); }
+                checkoutHeader.CartDetails = cartDto.CartDetails;
+
+                //Добавить логику для сообщений заказа
             }
             catch (Exception e)
             {
