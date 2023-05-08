@@ -302,7 +302,7 @@ https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/boots
 121. Создаём новый проект, библиотка классов
     - PS.MangoRestaurant.MessageBus
 122. Устанавливаем Nuget пакет
-    - Microsoft.Azure.ServiceBus
+    - Azure.Messaging.ServiceBus
 123. Создаём класс
     - BaseMessage
     - AzureServiceBusMessageBus
