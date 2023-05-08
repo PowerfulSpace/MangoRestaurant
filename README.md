@@ -308,3 +308,9 @@ https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/boots
     - AzureServiceBusMessageBus
 124. Создаём интерфейс
     - IMessageBus
+
+                                   Order
+125. Создание сервиса PS.MangoRestaurant.Services.OrderAPI
+126. Создание моделей
+    - OrderDetails
+    - OrderHeader
