@@ -323,3 +323,5 @@ https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/boots
     - Swashbuckle.AspNetCore.Annotations
     - Swashbuckle.AspNetCore.SwaggerUI
 128. Создание подключения к бд ApplicationDbContext
+129. настройка Program
+130. Создание миграции
