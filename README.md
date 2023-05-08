@@ -314,3 +314,12 @@ https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/boots
 126. Создание моделей
     - OrderDetails
     - OrderHeader
+127. Подключение Nuget пакетов
+    - AutoMapper
+    - AutoMapper.Extensions.Microsoft.DependencyInjection
+    - Microsoft.AspNetCore.Authentication.JwtBearer
+    - Microsoft.EntityFrameworkCore.SqlServer
+    - Microsoft.EntityFrameworkCore.Tools
+    - Swashbuckle.AspNetCore.Annotations
+    - Swashbuckle.AspNetCore.SwaggerUI
+128. Создание подключения к бд ApplicationDbContext
