@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using PS.MangoRestaurant.Services.OrderAPI.DbContexts;
+using PS.MangoRestaurant.Services.OrderAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(builder.
 
 //Подключение автомаппера
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+//Подключение внедрений зависимостей
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
+//Настрой DbContext для репозитория заказов
+var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+optionBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+builder.Services.AddSingleton(new OrderRepository(optionBuilder.Options));
 
 //Подключеие свагера
 builder.Services.AddEndpointsApiExplorer();

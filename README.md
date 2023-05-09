@@ -328,3 +328,9 @@ https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/boots
 131. Создание репозитория
     - IOrderRepository
     - OrderRepository
+132. Настрой DbContext для репозитория заказов в Program
+133. Создаём дерикторию Messaging и в ней создаём класс
+    - AzureServiceBusConsumer
+133. Создаём дерикторию Messages и в ней создаём классы
+    - CartHeaderDto
+    - ProductDto
