@@ -10,7 +10,7 @@ namespace PS.MangoRestaurant.Services.OrderAPI.DbContexts
 
         }
 
-        public DbSet<OrderDetails> OrderDetails { get; set; }
-        public DbSet<OrderHeader> orderHeaders { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; } = null!;
+        public DbSet<OrderHeader> orderHeaders { get; set; } = null!;
     }
 }
