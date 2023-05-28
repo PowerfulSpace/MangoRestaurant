@@ -23,6 +23,10 @@ namespace PS.MangoRestaurant.Services.CouponAPI.Controllers
             try
             {
                 var couponDto = await _couponRepository.GetCouponByCode(code);
+                if (couponDto == null)
+                {
+                    _response.IsSuccess = false;
+                }
                 _response.Result = couponDto;
             }
             catch (Exception e)
