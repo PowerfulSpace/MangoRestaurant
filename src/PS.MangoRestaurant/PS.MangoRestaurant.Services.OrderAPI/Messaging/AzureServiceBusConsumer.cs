@@ -9,11 +9,29 @@ namespace PS.MangoRestaurant.Services.OrderAPI.Messaging
 {
     public class AzureServiceBusConsumer
     {
+        private readonly string serviceBusConnectionString;
+        private readonly string subscriptionCheckOut;
+        private readonly string checkoutMessageTopic;
+        //private readonly string orderPaymentProcessTopic;
+        //private readonly string orderUpdatePaymentResultTopic;
+
+        private ServiceBusProcessor checkOutProcessor;
+        private readonly IConfiguration _configuration;
+
         private readonly OrderRepository _orderRepository;
 
-        public AzureServiceBusConsumer(OrderRepository orderRepository)
+        public AzureServiceBusConsumer(OrderRepository orderRepository, IConfiguration configuration)
         {
             _orderRepository = orderRepository;
+            _configuration = configuration;
+
+            serviceBusConnectionString = _configuration.GetValue<string>("ServiceBusConnectionString");
+            subscriptionCheckOut = _configuration.GetValue<string>("SubscriptionCheckOut");
+            checkoutMessageTopic = _configuration.GetValue<string>("CheckoutMessageTopic");
+
+            var client = new ServiceBusClient(serviceBusConnectionString);
+
+            checkOutProcessor = client.CreateProcessor(checkoutMessageTopic);
         }
 
         private async Task OnCheckoutMessageReceived(ProcessMessageEventArgs args)

@@ -156,7 +156,7 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Controllers
 
         #region Azure test
 
-        [HttpPost("Checkout")]
+        [HttpPost("AzureCheckout")]
         public async Task<object> AzureCheckout([FromBody] CheckoutHeaderDto checkoutHeader)
         {
             try
