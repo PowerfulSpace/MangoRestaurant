@@ -7,7 +7,7 @@ using System.Text;
 
 namespace PS.MangoRestaurant.Services.OrderAPI.Messaging
 {
-    public class AzureServiceBusConsumer
+    public class AzureServiceBusConsumer : IAzureServiceBusConsumer
     {
         private readonly string serviceBusConnectionString;
         private readonly string subscriptionCheckOut;
@@ -34,7 +34,7 @@ namespace PS.MangoRestaurant.Services.OrderAPI.Messaging
             checkOutProcessor = client.CreateProcessor(checkoutMessageTopic);
         }
 
-        private async Task OnCheckoutMessageReceived(ProcessMessageEventArgs args)
+        public async Task OnCheckOutMessageReceived(ProcessMessageEventArgs args)
         {
             var message = args.Message;
             var body = Encoding.UTF8.GetString(message.Body);
@@ -73,6 +73,32 @@ namespace PS.MangoRestaurant.Services.OrderAPI.Messaging
             }
 
             await _orderRepository.AddOrder(orderHeader);
+        }
+
+        public async Task Start()
+        {
+            checkOutProcessor.ProcessMessageAsync += OnCheckOutMessageReceived;
+            checkOutProcessor.ProcessMessageAsync += OnCheckOutMessageReceived;
+            checkOutProcessor.ProcessErrorAsync += ErrorHandler;
+            await checkOutProcessor.StartProcessingAsync();
+
+            //orderUpdatePaymentStatusProcessor.ProcessMessageAsync += OnOrderPaymentUpdateReceived;
+            //orderUpdatePaymentStatusProcessor.ProcessErrorAsync += ErrorHandler;
+            //await orderUpdatePaymentStatusProcessor.StartProcessingAsync();
+        }
+        public async Task Stop()
+        {
+            await checkOutProcessor.StopProcessingAsync();
+            await checkOutProcessor.DisposeAsync();
+
+            //await orderUpdatePaymentStatusProcessor.StopProcessingAsync();
+            //await orderUpdatePaymentStatusProcessor.DisposeAsync();
+        }
+
+        Task ErrorHandler(ProcessErrorEventArgs args)
+        {
+            Console.WriteLine(args.Exception.ToString());
+            return Task.CompletedTask;
         }
     }
 }

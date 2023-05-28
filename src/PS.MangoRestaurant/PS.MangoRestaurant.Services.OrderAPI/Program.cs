@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using PS.MangoRestaurant.Services.OrderAPI.DbContexts;
+using PS.MangoRestaurant.Services.OrderAPI.Extension;
+using PS.MangoRestaurant.Services.OrderAPI.Messaging;
 using PS.MangoRestaurant.Services.OrderAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +22,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
 optionBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 builder.Services.AddSingleton(new OrderRepository(optionBuilder.Options));
+builder.Services.AddSingleton<IAzureServiceBusConsumer, AzureServiceBusConsumer>();
 
 //Подключеие свагера
 builder.Services.AddEndpointsApiExplorer();
@@ -92,5 +95,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseAzureServiceBusConsumer();
 
 app.Run();

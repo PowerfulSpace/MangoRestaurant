@@ -334,5 +334,6 @@ https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/boots
 133. Создаём дерикторию Messages и в ней создаём классы
     - CartHeaderDto
     - ProductDto
-134. Создаём директорию Messaging и в ней класс AzureServiceBusConsumer
+134. Создаём директорию Messaging и в ней класс AzureServiceBusConsumer и и нтерфейс IAzureServiceBusConsumer
 135. Настройка констант для работы с сшиной эйжур в PS.MangoRestaurant.Services.OrderAPI
+136. Добавляем директория Extension и  класс ApplicationBuilderExtensions
