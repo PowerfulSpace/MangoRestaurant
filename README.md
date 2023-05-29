@@ -340,3 +340,4 @@ https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/boots
 137. Делаем проверку в api PS.MangoRestaurant.Services.ShoppingCartAPI на достовеность купона и его действие на данный момент. Создаём для этого
     - CouponRepository
     - ICouponRepository
+138. Настроил проверку на действительность куппоана в представлении Checkout
