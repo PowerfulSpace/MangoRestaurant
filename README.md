@@ -337,3 +337,6 @@ https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/boots
 134. Создаём директорию Messaging и в ней класс AzureServiceBusConsumer и и нтерфейс IAzureServiceBusConsumer
 135. Настройка констант для работы с сшиной эйжур в PS.MangoRestaurant.Services.OrderAPI
 136. Добавляем директория Extension и  класс ApplicationBuilderExtensions
+137. Делаем проверку в api PS.MangoRestaurant.Services.ShoppingCartAPI на достовеность купона и его действие на данный момент. Создаём для этого
+    - CouponRepository
+    - ICouponRepository
