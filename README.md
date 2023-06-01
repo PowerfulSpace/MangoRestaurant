@@ -341,3 +341,5 @@ https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/boots
     - CouponRepository
     - ICouponRepository
 138. Настроил проверку на действительность куппоана в представлении Checkout
+
+139. Создание нового проекта Payment
