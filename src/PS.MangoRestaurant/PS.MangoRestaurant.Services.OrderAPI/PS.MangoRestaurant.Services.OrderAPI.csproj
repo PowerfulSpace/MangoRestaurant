@@ -30,4 +30,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PS.MangoRestaurant.MessageBus\PS.MangoRestaurant.MessageBus.csproj" />
+  </ItemGroup>
+
 </Project>
