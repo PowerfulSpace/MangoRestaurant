@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using PS.MangoRestaurant.MessageBus;
 using PS.MangoRestaurant.Services.OrderAPI.DbContexts;
 using PS.MangoRestaurant.Services.OrderAPI.Extension;
 using PS.MangoRestaurant.Services.OrderAPI.Messaging;
@@ -23,6 +24,7 @@ var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
 optionBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 builder.Services.AddSingleton(new OrderRepository(optionBuilder.Options));
 builder.Services.AddSingleton<IAzureServiceBusConsumer, AzureServiceBusConsumer>();
+builder.Services.AddSingleton<IMessageBus, AzureServiceBusMessageBus>();
 
 //Подключеие свагера
 builder.Services.AddEndpointsApiExplorer();

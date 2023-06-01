@@ -1,5 +1,6 @@
 ﻿using Azure.Messaging.ServiceBus;
 using Newtonsoft.Json;
+using PS.MangoRestaurant.MessageBus;
 using PS.MangoRestaurant.Services.OrderAPI.Messages;
 using PS.MangoRestaurant.Services.OrderAPI.Models;
 using PS.MangoRestaurant.Services.OrderAPI.Repository;
@@ -12,26 +13,31 @@ namespace PS.MangoRestaurant.Services.OrderAPI.Messaging
         private readonly string serviceBusConnectionString;
         private readonly string subscriptionCheckOut;
         private readonly string checkoutMessageTopic;
-        //private readonly string orderPaymentProcessTopic;
+        private readonly string orderPaymentProcessTopic;
         //private readonly string orderUpdatePaymentResultTopic;
 
         private ServiceBusProcessor checkOutProcessor;
         private readonly IConfiguration _configuration;
+        private readonly IMessageBus _messageBus;
 
         private readonly OrderRepository _orderRepository;
 
-        public AzureServiceBusConsumer(OrderRepository orderRepository, IConfiguration configuration)
+        public AzureServiceBusConsumer(OrderRepository orderRepository, IConfiguration configuration, IMessageBus messageBus, string orderPaymentProcessTopic)
         {
             _orderRepository = orderRepository;
             _configuration = configuration;
+            _messageBus = messageBus;
 
             serviceBusConnectionString = _configuration.GetValue<string>("ServiceBusConnectionString");
             subscriptionCheckOut = _configuration.GetValue<string>("SubscriptionCheckOut");
             checkoutMessageTopic = _configuration.GetValue<string>("CheckoutMessageTopic");
+            orderPaymentProcessTopic = _configuration.GetValue<string>("OrderPaymentProcessTopics");
+            //orderUpdatePaymentResultTopic = _configuration.GetValue<string>("OrderUpdatePaymentResultTopic");
 
             var client = new ServiceBusClient(serviceBusConnectionString);
 
             checkOutProcessor = client.CreateProcessor(checkoutMessageTopic);
+            this.orderPaymentProcessTopic = orderPaymentProcessTopic;
         }
 
         public async Task OnCheckOutMessageReceived(ProcessMessageEventArgs args)
@@ -73,6 +79,25 @@ namespace PS.MangoRestaurant.Services.OrderAPI.Messaging
             }
 
             await _orderRepository.AddOrder(orderHeader);
+
+            PaymentRequestMessage paymentRequestMessage = new()
+            {
+                Name = orderHeader.FirstName + " " + orderHeader.LastName,
+                CardNumber = orderHeader.CardNumber,
+                CVV = orderHeader.CVV,
+                ExpiryMonthYear = orderHeader.ExpiryMonthYear,
+                OrderId = orderHeader.OrderHeaderId,
+                OrderTotal = orderHeader.OrderTotal,
+            };
+            try
+            {
+                await _messageBus.PublishMessage(paymentRequestMessage, orderPaymentProcessTopic);
+                await args.CompleteMessageAsync(args.Message);
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
         public async Task Start()
