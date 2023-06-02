@@ -4,6 +4,7 @@ using PS.MangoRestaurant.MessageBus;
 using PS.MangoRestaurant.Services.OrderAPI.Messages;
 using PS.MangoRestaurant.Services.OrderAPI.Models;
 using PS.MangoRestaurant.Services.OrderAPI.Repository;
+using PS.MangoRestaurant.Services.PaymentAPI.Messages;
 using System.Text;
 
 namespace PS.MangoRestaurant.Services.OrderAPI.Messaging
@@ -14,15 +15,17 @@ namespace PS.MangoRestaurant.Services.OrderAPI.Messaging
         private readonly string subscriptionCheckOut;
         private readonly string checkoutMessageTopic;
         private readonly string orderPaymentProcessTopic;
-        //private readonly string orderUpdatePaymentResultTopic;
+        private readonly string orderUpdatePaymentResultTopic;
 
         private ServiceBusProcessor checkOutProcessor;
+        private ServiceBusProcessor orderUpdatePaymentStatusProcessor;
+
         private readonly IConfiguration _configuration;
         private readonly IMessageBus _messageBus;
 
         private readonly OrderRepository _orderRepository;
 
-        public AzureServiceBusConsumer(OrderRepository orderRepository, IConfiguration configuration, IMessageBus messageBus, string orderPaymentProcessTopic)
+        public AzureServiceBusConsumer(OrderRepository orderRepository, IConfiguration configuration, IMessageBus messageBus)
         {
             _orderRepository = orderRepository;
             _configuration = configuration;
@@ -32,12 +35,13 @@ namespace PS.MangoRestaurant.Services.OrderAPI.Messaging
             subscriptionCheckOut = _configuration.GetValue<string>("SubscriptionCheckOut");
             checkoutMessageTopic = _configuration.GetValue<string>("CheckoutMessageTopic");
             orderPaymentProcessTopic = _configuration.GetValue<string>("OrderPaymentProcessTopics");
-            //orderUpdatePaymentResultTopic = _configuration.GetValue<string>("OrderUpdatePaymentResultTopic");
+            orderUpdatePaymentResultTopic = _configuration.GetValue<string>("OrderUpdatePaymentResultTopic");
+
 
             var client = new ServiceBusClient(serviceBusConnectionString);
 
             checkOutProcessor = client.CreateProcessor(checkoutMessageTopic);
-            this.orderPaymentProcessTopic = orderPaymentProcessTopic;
+            orderUpdatePaymentStatusProcessor = client.CreateProcessor(orderUpdatePaymentResultTopic, subscriptionCheckOut);
         }
 
         public async Task OnCheckOutMessageReceived(ProcessMessageEventArgs args)
@@ -103,27 +107,38 @@ namespace PS.MangoRestaurant.Services.OrderAPI.Messaging
         public async Task Start()
         {
             checkOutProcessor.ProcessMessageAsync += OnCheckOutMessageReceived;
-            checkOutProcessor.ProcessMessageAsync += OnCheckOutMessageReceived;
             checkOutProcessor.ProcessErrorAsync += ErrorHandler;
             await checkOutProcessor.StartProcessingAsync();
 
-            //orderUpdatePaymentStatusProcessor.ProcessMessageAsync += OnOrderPaymentUpdateReceived;
-            //orderUpdatePaymentStatusProcessor.ProcessErrorAsync += ErrorHandler;
-            //await orderUpdatePaymentStatusProcessor.StartProcessingAsync();
+            orderUpdatePaymentStatusProcessor.ProcessMessageAsync += OnOrderPaymentUpdateReceived;
+            orderUpdatePaymentStatusProcessor.ProcessErrorAsync += ErrorHandler;
+            await orderUpdatePaymentStatusProcessor.StartProcessingAsync();
         }
         public async Task Stop()
         {
             await checkOutProcessor.StopProcessingAsync();
             await checkOutProcessor.DisposeAsync();
 
-            //await orderUpdatePaymentStatusProcessor.StopProcessingAsync();
-            //await orderUpdatePaymentStatusProcessor.DisposeAsync();
+            await orderUpdatePaymentStatusProcessor.StopProcessingAsync();
+            await orderUpdatePaymentStatusProcessor.DisposeAsync();
         }
 
         Task ErrorHandler(ProcessErrorEventArgs args)
         {
             Console.WriteLine(args.Exception.ToString());
             return Task.CompletedTask;
+        }
+
+        private async Task OnOrderPaymentUpdateReceived(ProcessMessageEventArgs args)
+        {
+            var message = args.Message;
+            var body = Encoding.UTF8.GetString(message.Body);
+
+            UpdatePaymentResultMessage paymentResultMessage = JsonConvert.DeserializeObject<UpdatePaymentResultMessage>(body);
+
+            await _orderRepository.UpdateOrderPaymentStatus(paymentResultMessage.OrderId, paymentResultMessage.Status);
+            await args.CompleteMessageAsync(args.Message);
+
         }
     }
 }
