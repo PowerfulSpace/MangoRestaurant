@@ -159,6 +159,8 @@ namespace PS.MangoRestaurant.Services.ShoppingCartAPI.Controllers
                     }
                 }
                 //Добавить логику для сообщений заказа
+                
+                await _cartRepository.ClearCart(checkoutHeader.UserId);
             }
             catch (Exception e)
             {
