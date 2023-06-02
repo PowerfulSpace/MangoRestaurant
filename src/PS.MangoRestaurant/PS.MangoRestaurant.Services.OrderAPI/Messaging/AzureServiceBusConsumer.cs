@@ -84,7 +84,7 @@ namespace PS.MangoRestaurant.Services.OrderAPI.Messaging
 
             await _orderRepository.AddOrder(orderHeader);
 
-            PaymentRequestMessage paymentRequestMessage = new()
+            PS.MangoRestaurant.Services.OrderAPI.Messages.PaymentRequestMessage paymentRequestMessage = new()
             {
                 Name = orderHeader.FirstName + " " + orderHeader.LastName,
                 CardNumber = orderHeader.CardNumber,
