@@ -25,9 +25,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.MangoRestaurant.Services
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payments", "Payments", "{6B960FCE-9B85-4CC3-9E6C-C2AEEC5532A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentProcessor", "PaymentProcessor\PaymentProcessor.csproj", "{A498EAFE-87EA-4BB7-BE23-2F20228C5284}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentProcessor", "PaymentProcessor\PaymentProcessor.csproj", "{A498EAFE-87EA-4BB7-BE23-2F20228C5284}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.MangoRestaurant.Services.PaymentAPI", "PS.MangoRestaurant.Services.PaymentAPI\PS.MangoRestaurant.Services.PaymentAPI.csproj", "{CE261446-D4EF-4747-BC5C-4FCEAEAF1DAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PS.MangoRestaurant.Services.PaymentAPI", "PS.MangoRestaurant.Services.PaymentAPI\PS.MangoRestaurant.Services.PaymentAPI.csproj", "{CE261446-D4EF-4747-BC5C-4FCEAEAF1DAB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{EC0ADA7E-7145-40E9-8FD8-B76210860399}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.MangoRestaurant.Gateway.Solution", "PS.MangoRestaurant.Gateway.Solution\PS.MangoRestaurant.Gateway.Solution.csproj", "{727835AB-8039-4E7A-80E5-49CD53CFFFA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +75,10 @@ Global
 		{CE261446-D4EF-4747-BC5C-4FCEAEAF1DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE261446-D4EF-4747-BC5C-4FCEAEAF1DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE261446-D4EF-4747-BC5C-4FCEAEAF1DAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{727835AB-8039-4E7A-80E5-49CD53CFFFA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{727835AB-8039-4E7A-80E5-49CD53CFFFA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{727835AB-8039-4E7A-80E5-49CD53CFFFA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{727835AB-8039-4E7A-80E5-49CD53CFFFA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +93,7 @@ Global
 		{BD2C9105-A3FA-4C56-99C4-4594E7E963AE} = {14A9B7A2-B783-44D9-9161-F90302B48697}
 		{A498EAFE-87EA-4BB7-BE23-2F20228C5284} = {6B960FCE-9B85-4CC3-9E6C-C2AEEC5532A4}
 		{CE261446-D4EF-4747-BC5C-4FCEAEAF1DAB} = {14A9B7A2-B783-44D9-9161-F90302B48697}
+		{727835AB-8039-4E7A-80E5-49CD53CFFFA6} = {EC0ADA7E-7145-40E9-8FD8-B76210860399}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8576052-91ED-410D-B84B-1895385B1580}
