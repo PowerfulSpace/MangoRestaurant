@@ -33,7 +33,7 @@ namespace PS.MangoRestaurant.Services.ProductAPI.Controllers
             return _response;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("{id}")]
         public async Task<object> Get(int id)
         {

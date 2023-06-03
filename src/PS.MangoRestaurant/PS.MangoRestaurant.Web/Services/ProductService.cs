@@ -35,7 +35,7 @@ namespace PS.MangoRestaurant.Web.Services
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
-                ApiType = SD.ApiType.POST,
+                ApiType = SD.ApiType.GET,
                 Url = SD.ProductAPIBase + "/api/products/" + id,
                 AccessToken = token
             });
